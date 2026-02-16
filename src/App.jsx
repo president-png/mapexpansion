@@ -13,7 +13,6 @@ const DONATE_URL =
 const SUGGESTIONS_EMAIL = "mapexpansion@mapitt.org";
 const SUGGESTIONS_SUBJECT = "MAP Expansion Website Suggestion";
 
-// Gmail compose link (reliable for most users)
 const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
   SUGGESTIONS_EMAIL
 )}&su=${encodeURIComponent(SUGGESTIONS_SUBJECT)}`;
@@ -77,22 +76,22 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            {/* Email suggestions (Gmail compose) */}
+            {/* Light gray secondary */}
             <a
               href={GMAIL_COMPOSE_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 rounded-xl border border-white/20 bg-white/5 backdrop-blur text-sm font-medium hover:bg-white/10 transition"
+              className="px-4 py-2 rounded-xl border border-gray-300 bg-gray-200 text-gray-900 text-sm font-medium hover:bg-gray-300 transition"
             >
               Email Suggestions
             </a>
 
-            {/* Donate now */}
+            {/* Green primary */}
             <a
               href={DONATE_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 rounded-xl bg-white text-[#070A12] text-sm font-semibold hover:bg-white/90 transition"
+              className="px-4 py-2 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition"
             >
               Donate Now
             </a>
@@ -102,7 +101,7 @@ export default function App() {
 
       {/* HERO */}
       <section className="max-w-6xl mx-auto px-6 pt-14 md:pt-16 grid md:grid-cols-2 gap-12 items-center">
-        {/* left text */}
+        {/* left */}
         <div>
           <div className="flex gap-2 flex-wrap">
             <span className="text-xs bg-white/10 border border-white/20 px-3 py-1 rounded-full text-white/80">
@@ -130,14 +129,14 @@ export default function App() {
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <a
               href="#gallery"
-              className="px-6 py-3 rounded-2xl bg-white text-[#070A12] font-medium shadow-lg hover:bg-white/90 transition text-center"
+              className="px-6 py-3 rounded-2xl bg-emerald-600 text-white font-medium shadow-lg hover:bg-emerald-700 transition text-center"
             >
               View Drawings
             </a>
 
             <a
               href="#tour"
-              className="px-6 py-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur shadow-lg hover:bg-white/10 transition text-center"
+              className="px-6 py-3 rounded-2xl border border-gray-300 bg-gray-200 text-gray-900 shadow-lg hover:bg-gray-300 transition text-center"
             >
               3D Tour
             </a>
@@ -148,7 +147,7 @@ export default function App() {
               href={GMAIL_COMPOSE_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 rounded-2xl border border-white/20 bg-white/5 hover:bg-white/10 transition text-center"
+              className="px-6 py-3 rounded-2xl border border-gray-300 bg-gray-200 text-gray-900 hover:bg-gray-300 transition text-center"
             >
               Send a Suggestion
             </a>
@@ -157,15 +156,15 @@ export default function App() {
               href={DONATE_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 rounded-2xl bg-white text-[#070A12] font-semibold hover:bg-white/90 transition text-center"
+              className="px-6 py-3 rounded-2xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition text-center"
             >
               Donate Now
             </a>
           </div>
         </div>
 
-        {/* right hero tiles (clickable) */}
-        <div className="grid gap-3 md:grid-cols-2">
+        {/* right hero images: left tall + two stacked on right */}
+        <div className="grid gap-1 md:grid-cols-2">
           <div className="md:row-span-2">
             <ImageTile
               src={exterior1}
@@ -180,6 +179,7 @@ export default function App() {
               }
             />
           </div>
+
           <ImageTile
             src={exterior2}
             alt="Exterior rendering 2"
@@ -224,10 +224,10 @@ export default function App() {
             <button
               key={t}
               onClick={() => setActiveFilter(t)}
-              className={`px-4 py-2 rounded-2xl border border-white/20 text-sm transition ${
+              className={`px-4 py-2 rounded-2xl border border-gray-300 text-sm transition ${
                 activeFilter === t
-                  ? "bg-white text-black"
-                  : "bg-white/5 text-white hover:bg-white/10"
+                  ? "bg-emerald-600 text-white"
+                  : "bg-gray-200 text-gray-900 hover:bg-gray-300"
               }`}
             >
               {t}
@@ -235,12 +235,12 @@ export default function App() {
           ))}
         </div>
 
-        {/* Images */}
+        {/* Explore cards: medium gray background */}
         <div className="grid md:grid-cols-3 gap-6 mt-10">
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="rounded-3xl border border-white/10 bg-white/5 p-4"
+              className="rounded-3xl border border-gray-300 bg-emerald-600 p-4 shadow-sm"
             >
               <button
                 type="button"
@@ -257,14 +257,14 @@ export default function App() {
                 <img
                   src={item.img}
                   alt={item.label}
-                  className="h-48 w-full object-cover rounded-2xl border border-white/10 hover:opacity-95 transition"
+                  className="h-48 w-full object-cover rounded-2xl border border-gray-300 hover:opacity-95 transition"
                   loading="lazy"
                 />
               </button>
 
-              <div className="flex justify-between mt-3 text-sm">
-                <span className="text-white/85">{item.label}</span>
-                <span className="text-white/50">{item.tag}</span>
+              <div className="flex justify-between mt-3 text-sm text-black">
+                <span>{item.label}</span>
+                <span className="text-gray-700">{item.tag}</span>
               </div>
             </div>
           ))}
@@ -286,11 +286,12 @@ export default function App() {
           </p>
         </div>
 
-        <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5">
+        {/* Medium gray pushed “into the background” (tinted) */}
+        <div className="rounded-3xl overflow-hidden border border-gray-300 bg-gray-500/25 backdrop-blur-sm">
           <iframe
             title="3D Tour"
             className="w-full aspect-video"
-            src="" // <-- put your embed URL here
+            src=""
             allow="fullscreen; xr-spatial-tracking"
           />
         </div>
@@ -298,16 +299,17 @@ export default function App() {
 
       {/* SUPPORT / DONATE + QR */}
       <section id="support" className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+        {/* Medium gray tint in the background, content stays readable */}
+        <div className="rounded-3xl border border-gray-300 bg-gray-500/25 backdrop-blur-sm p-6 md:p-8">
           <div className="grid gap-8 md:grid-cols-12 md:items-center">
             <div className="md:col-span-7">
-              <p className="text-xs tracking-widest uppercase text-white/60">
+              <p className="text-xs tracking-widest uppercase text-white/70">
                 Support the project
               </p>
               <h3 className="text-2xl md:text-3xl font-semibold mt-2">
                 Help build what comes next
               </h3>
-              <p className="text-white/70 mt-3 leading-relaxed">
+              <p className="text-white/75 mt-3 leading-relaxed">
                 Your support helps move this expansion forward. Donate online,
                 or scan the QR code to give from your phone.
               </p>
@@ -317,7 +319,7 @@ export default function App() {
                   href={DONATE_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-3 rounded-2xl bg-white text-[#070A12] font-semibold hover:bg-white/90 transition text-center"
+                  className="px-6 py-3 rounded-2xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition text-center"
                 >
                   Donate Now
                 </a>
@@ -326,28 +328,28 @@ export default function App() {
                   href={GMAIL_COMPOSE_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-3 rounded-2xl border border-white/20 bg-white/5 hover:bg-white/10 transition text-center"
+                  className="px-6 py-3 rounded-2xl border border-gray-300 bg-gray-200 text-gray-900 hover:bg-gray-300 transition text-center"
                 >
                   Email Suggestions
                 </a>
               </div>
 
-              <p className="mt-4 text-xs text-white/50">
+              <p className="mt-4 text-xs text-white/60">
                 Or donate using this link:{" "}
-                <span className="text-white/70 break-all">{DONATE_URL}</span>
+                <span className="text-white/80 break-all">{DONATE_URL}</span>
               </p>
             </div>
 
             <div className="md:col-span-5">
-              <div className="rounded-3xl border border-white/10 bg-[#070A12]/40 p-5 flex items-center gap-5">
+              <div className="rounded-3xl border border-gray-300 bg-white/5 p-5 flex items-center gap-5">
                 <img
                   src={qrSrc}
                   alt="QR code to donate"
-                  className="h-[140px] w-[140px] rounded-2xl border border-white/10 bg-white"
+                  className="h-[140px] w-[140px] rounded-2xl border border-gray-300 bg-white"
                 />
                 <div>
                   <p className="font-semibold">Scan to donate</p>
-                  <p className="text-sm text-white/70 mt-1">
+                  <p className="text-sm text-white/75 mt-1">
                     Open your phone camera and point it at the QR code.
                   </p>
                   <a
@@ -386,18 +388,18 @@ export default function App() {
               <p className="text-sm text-white/80">{lightbox.label}</p>
               <button
                 type="button"
-                className="px-3 py-1 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 text-sm"
+                className="px-3 py-1 rounded-lg border border-gray-300 bg-gray-200 text-gray-900 hover:bg-gray-300 text-sm transition"
                 onClick={() => setLightbox(null)}
               >
                 Close
               </button>
             </div>
 
-            <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5">
+            <div className="rounded-3xl overflow-hidden border border-gray-300 bg-white">
               <img
                 src={lightbox.src}
                 alt={lightbox.alt}
-                className="w-full max-h-[80vh] object-contain bg-black/20"
+                className="w-full max-h-[80vh] object-contain bg-white"
               />
             </div>
 
@@ -424,7 +426,7 @@ function ImageTile({ src, alt, tall = false, onClick }) {
         alt={alt}
         className={[
           tall ? "h-80" : "h-40",
-          "w-full object-cover rounded-3xl border border-white/10 bg-white/5 hover:opacity-95 transition",
+          "w-full object-cover rounded-3xl border border-gray-300 hover:opacity-95 transition",
         ].join(" ")}
         loading="lazy"
       />
