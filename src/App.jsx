@@ -3,9 +3,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import basement from "./images/Basement.jpg";
 import floor1 from "./images/Floor1.jpg";
 import floor2 from "./images/Floor2.jpg";
+
 import exterior1 from "./images/Exterior1.jpg";
 import exterior2 from "./images/Exterior2.jpg";
 import exterior3 from "./images/Exterior3.jpg";
+import exterior4 from "./images/Exterior4.jpg";
+
+import overview from "./images/Overview.jpg";
 
 const DONATE_URL =
   "https://us.mohid.co/pa/pittsburgh/map/masjid/online/donation/35";
@@ -26,14 +30,18 @@ export default function App() {
       { id: 1, tag: "Plans", label: "Basement Level", img: basement },
       { id: 2, tag: "Plans", label: "First Floor", img: floor1 },
       { id: 3, tag: "Plans", label: "Second Floor", img: floor2 },
+
       { id: 4, tag: "Exterior", label: "Exterior View 1", img: exterior1 },
       { id: 5, tag: "Exterior", label: "Exterior View 2", img: exterior2 },
       { id: 6, tag: "Exterior", label: "Exterior View 3", img: exterior3 },
+      { id: 7, tag: "Exterior", label: "Exterior View 4", img: exterior4 },
+
+      { id: 8, tag: "Interior", label: "Interior Overview", img: overview },
     ],
     []
   );
 
-  const filters = ["All", "Exterior", "Plans"];
+  const filters = ["All", "Exterior", "Interior", "Plans"];
 
   const filtered =
     activeFilter === "All"
@@ -213,8 +221,8 @@ export default function App() {
           </p>
           <h2 className="text-3xl font-semibold mt-2">Explore the vision</h2>
           <p className="text-white/70 mt-3">
-            Browse the exterior renderings and floor plans. (Click any image to
-            enlarge.)
+            Browse the exterior renderings, interior overview, and floor plans.
+            (Click any image to enlarge.)
           </p>
         </div>
 
@@ -240,7 +248,7 @@ export default function App() {
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="rounded-3xl border border-gray-300 bg-emerald-600 p-4 shadow-sm"
+              className="rounded-3xl border border-gray-300 bg-gray-400 p-4 shadow-sm"
             >
               <button
                 type="button"
@@ -286,7 +294,6 @@ export default function App() {
           </p>
         </div>
 
-        {/* Medium gray pushed “into the background” (tinted) */}
         <div className="rounded-3xl overflow-hidden border border-gray-300 bg-gray-500/25 backdrop-blur-sm">
           <iframe
             title="3D Tour"
@@ -299,7 +306,6 @@ export default function App() {
 
       {/* SUPPORT / DONATE + QR */}
       <section id="support" className="max-w-6xl mx-auto px-6 pb-20">
-        {/* Medium gray tint in the background, content stays readable */}
         <div className="rounded-3xl border border-gray-300 bg-gray-500/25 backdrop-blur-sm p-6 md:p-8">
           <div className="grid gap-8 md:grid-cols-12 md:items-center">
             <div className="md:col-span-7">
