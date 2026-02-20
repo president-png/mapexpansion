@@ -148,7 +148,7 @@ export default function App() {
               href="#tour"
               className="px-6 py-3 rounded-2xl border border-gray-300 bg-gray-200 text-gray-900 shadow-lg hover:bg-gray-300 transition text-center"
             >
-              3D Tour
+              3D Tour (Coming Soon)
             </a>
           </div>
 
