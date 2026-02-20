@@ -31,17 +31,19 @@ export default function App() {
       { id: 2, tag: "Plans", label: "First Floor", img: floor1 },
       { id: 3, tag: "Plans", label: "Second Floor", img: floor2 },
 
-      { id: 4, tag: "Exterior", label: "Exterior View 1", img: exterior1 },
-      { id: 5, tag: "Exterior", label: "Exterior View 2", img: exterior2 },
-      { id: 6, tag: "Exterior", label: "Exterior View 3", img: exterior3 },
-      { id: 7, tag: "Exterior", label: "Exterior View 4", img: exterior4 },
+      // Overview should be under Plans
+      { id: 4, tag: "Plans", label: "Overview", img: overview },
 
-      { id: 8, tag: "Interior", label: "Interior Overview", img: overview },
+      { id: 5, tag: "Exterior", label: "Exterior View 1", img: exterior1 },
+      { id: 6, tag: "Exterior", label: "Exterior View 2", img: exterior2 },
+      { id: 7, tag: "Exterior", label: "Exterior View 3", img: exterior3 },
+      { id: 8, tag: "Exterior", label: "Exterior View 4", img: exterior4 },
     ],
     []
   );
 
-  const filters = ["All", "Exterior", "Interior", "Plans"];
+  // Removed "Interior" since Overview is now under Plans
+  const filters = ["All", "Exterior", "Plans"];
 
   const filtered =
     activeFilter === "All"
@@ -199,17 +201,19 @@ export default function App() {
               })
             }
           />
-          <ImageTile
-            src={exterior3}
-            alt="Exterior rendering 3"
-            onClick={() =>
-              setLightbox({
-                src: exterior3,
-                alt: "Exterior rendering 3",
-                label: "Exterior View 3",
-              })
-            }
-          />
+          <div className="-mt-2">
+            <ImageTile
+              src={exterior3}
+              alt="Exterior rendering 3"
+              onClick={() =>
+                setLightbox({
+                  src: exterior3,
+                  alt: "Exterior rendering 3",
+                  label: "Exterior View 3",
+                })
+              }
+            />
+          </div>
         </div>
       </section>
 
@@ -221,8 +225,8 @@ export default function App() {
           </p>
           <h2 className="text-3xl font-semibold mt-2">Explore the vision</h2>
           <p className="text-white/70 mt-3">
-            Browse the exterior renderings, interior overview, and floor plans.
-            (Click any image to enlarge.)
+            Browse the exterior renderings and floor plans. (Click any image to
+            enlarge.)
           </p>
         </div>
 
@@ -289,18 +293,20 @@ export default function App() {
             Walk through the future center
           </h2>
           <p className="text-white/70 mt-3 mb-8">
-            Paste your 3D tour embed link into the iframe{" "}
-            <span className="text-white">src</span>.
+            Our 3D tour will be available soon.
           </p>
         </div>
 
+        {/* Coming soon placeholder */}
         <div className="rounded-3xl overflow-hidden border border-gray-300 bg-gray-500/25 backdrop-blur-sm">
-          <iframe
-            title="3D Tour"
-            className="w-full aspect-video"
-            src=""
-            allow="fullscreen; xr-spatial-tracking"
-          />
+          <div className="w-full aspect-video flex items-center justify-center">
+            <div className="text-center px-6">
+              <p className="text-xl md:text-2xl font-semibold">Coming Soon</p>
+              <p className="text-white/70 mt-2">
+                We’re preparing an interactive 3D walkthrough. Check back soon.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
