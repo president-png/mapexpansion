@@ -12,7 +12,7 @@ import exterior4 from "./images/Exterior4.jpg";
 import overview from "./images/Overview.jpg";
 
 const DONATE_URL =
-  "https://us.mohid.co/pa/pittsburgh/map/masjid/online/donation/35";
+  "https://us.mohid.co/pa/pittsburgh/map/masjid/online/donation/37";
 
 const SUGGESTIONS_EMAIL = "map.expansion@mapitt.org";
 const SUGGESTIONS_SUBJECT = "MAP Expansion Website Suggestion";
