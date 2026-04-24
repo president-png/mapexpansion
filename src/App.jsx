@@ -8,6 +8,11 @@ import exterior1 from "./images/Exterior1.jpg";
 import exterior2 from "./images/Exterior2.jpg";
 import exterior3 from "./images/Exterior3.jpg";
 import exterior4 from "./images/Exterior4.jpg";
+import exterior5 from "./images/Exterior5.jpg";
+import exterior6 from "./images/Exterior6.jpg";
+import exterior7 from "./images/Exterior7.jpg";
+import exterior8 from "./images/Exterior8.jpg";
+import exterior9 from "./images/Exterior9.jpg";
 
 import overview from "./images/Overview.jpg";
 
@@ -27,17 +32,22 @@ export default function App() {
 
   const galleryItems = useMemo(
     () => [
-      { id: 1, tag: "Plans", label: "Basement Level", img: basement },
-      { id: 2, tag: "Plans", label: "First Floor", img: floor1 },
-      { id: 3, tag: "Plans", label: "Second Floor", img: floor2 },
+      { id: 1, tag: "Exterior", label: "Exterior View 1", img: exterior1 },
+      { id: 2, tag: "Exterior", label: "Exterior View 2", img: exterior2 },
+      { id: 3, tag: "Exterior", label: "Exterior View 3", img: exterior3 },
+      { id: 4, tag: "Exterior", label: "Exterior View 4", img: exterior4 },
+      { id: 5, tag: "Exterior", label: "Exterior View 5", img: exterior5 },
+      { id: 6, tag: "Exterior", label: "Exterior View 6", img: exterior6 },
+      { id: 7, tag: "Exterior", label: "Exterior View 7", img: exterior7 },
+      { id: 8, tag: "Exterior", label: "Exterior View 8", img: exterior8 },
+      { id: 9, tag: "Exterior", label: "Exterior View 9", img: exterior9 },
+
+      { id: 10, tag: "Plans", label: "Basement Level", img: basement },
+      { id: 11, tag: "Plans", label: "First Floor", img: floor1 },
+      { id: 12, tag: "Plans", label: "Second Floor", img: floor2 },
 
       // Overview should be under Plans
-      { id: 4, tag: "Plans", label: "Overview", img: overview },
-
-      { id: 5, tag: "Exterior", label: "Exterior View 1", img: exterior1 },
-      { id: 6, tag: "Exterior", label: "Exterior View 2", img: exterior2 },
-      { id: 7, tag: "Exterior", label: "Exterior View 3", img: exterior3 },
-      { id: 8, tag: "Exterior", label: "Exterior View 4", img: exterior4 },
+      { id: 13, tag: "Plans", label: "Overview", img: overview },
     ],
     []
   );
